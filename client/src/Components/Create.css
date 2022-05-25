@@ -1,0 +1,45 @@
+.BackGraund_Create{
+    background-image: url("../img/CreateRecipe_BackGraund.jpg");
+    background-repeat: no-repeat; /*para que la imagen de fondo no se repita*/
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat; /*para que la imagen de fondo no se repita*/
+    overflow: hidden;
+    position:fixed;
+    display: flex;
+    justify-content: center;
+     
+
+}
+
+.Contained_Create{
+   margin-top:3%; 
+   opacity: 80%;
+    padding: 10px;
+    background-color: antiquewhite;
+    height: 700px;
+    width: 550px;
+    border-radius: 10px;
+}
+.Contained_Create label{
+    display:inline-block;
+    width: 100px;
+    margin-right: 20px;
+}
+.Contained_Create select{
+    background-attachment: fixed;
+}
+.ul_home li{
+    text-decoration: none;
+    list-style:none;
+}
+.selectdiets select{
+ margin-top: 10px;
+ width: 100px;
+}
+.sal{
+    height: 200px;
+    width: 200px;
+    margin-top: 10px;
+}

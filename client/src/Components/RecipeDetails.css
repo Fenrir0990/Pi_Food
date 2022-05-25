@@ -1,0 +1,60 @@
+.BackGraundDetails{
+    background-image: url("../img/rdb.jpg");
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: cover;
+    position:fixed;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.con{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+    border: 2px solid black;
+    border-radius: 10px;
+    
+    height: 100%;
+    color:black;
+    
+}
+.imgRecipe{
+    margin: 10px;
+    height: 40%;
+    width: 40%;
+}
+.buttonDetails{
+    background-color: darkslategrey;
+    margin: 30px;
+    padding: 10px;
+    height: auto;
+    width: auto;
+    color: cadetblue;
+    border-radius: 10px;
+}
+.dieta{
+    padding: 5px;
+    margin: 5px;
+    background-color: darkgrey;
+    border: 2px solid black ;
+}
+#ab{
+    opacity: 60%;
+}
+.contained_info{
+    margin: 10px;
+    background-color: rgba(249, 234, 202, 0.851);
+    opacity:70%; 
+    border-radius: 10px;
+}
+.info{
+    opacity:100%;
+    margin: 10px;
+}
+
+
