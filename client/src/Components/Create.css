@@ -2,15 +2,15 @@
     background-image: url("../img/CreateRecipe_BackGraund.jpg");
     background-repeat: no-repeat; /*para que la imagen de fondo no se repita*/
     background-size: 100%;
+
     height: 100%;
     width: 100%;
-    background-repeat: no-repeat; /*para que la imagen de fondo no se repita*/
-    overflow: hidden;
-    position:fixed;
+     overflow: auto; 
+     position:fixed; 
     display: flex;
     justify-content: center;
-     
-
+    align-items: center;
+    
 }
 
 .Contained_Create{
@@ -18,9 +18,10 @@
    opacity: 80%;
     padding: 10px;
     background-color: antiquewhite;
-    height: 700px;
-    width: 550px;
+    height: auto;
+    width: 700px;
     border-radius: 10px;
+    padding-bottom: 50px;
 }
 .Contained_Create label{
     display:inline-block;
@@ -30,9 +31,12 @@
 .Contained_Create select{
     background-attachment: fixed;
 }
-.ul_home li{
-    text-decoration: none;
-    list-style:none;
+.ul_home{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    width: 80%;
+    left: 50%;
 }
 .selectdiets select{
  margin-top: 10px;
@@ -42,4 +46,35 @@
     height: 200px;
     width: 200px;
     margin-top: 10px;
+}
+.dietaa{
+    background-color: white;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    justify-content: center;
+    flex-direction: row;
+    width: 190px;
+    margin: 3px;
+}
+.selectdiets{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.creando{
+    background-color: darkolivegreen;
+    border-radius: 10px;
+    padding: 5px;
+    border:0px;
+    margin-top: 30px;
+}
+.close{
+    
+    position: absolute;
+    background-color: rgb(199, 145, 145);
+    border:0px;
+    border-radius: 4px;
 }

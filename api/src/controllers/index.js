@@ -5,6 +5,10 @@ const {Diet,Recipe} = require('../db');
 const {getApi,getApiId,getDb,getDbId}= require("./gets")
 
 
+
+async function on(req,res){
+    res.send("server on").status(200)
+}
 async function getAllRecipes(req,res,next){
     try {
         const name = req.query.name; // capturo el nombre pasado por query
@@ -120,14 +124,34 @@ async function loadDietsInDb(req,res,next){
         console.error(err)
     } */
 }
+async function create (req,res,next){
+    try {
+        const {title, summary, spoonacularScore, healthScore, instructions, image, diets} = req.body;
+        const recipeCreate = await Recipe.create({
+            title,
+            summary,
+            spoonacularScore,
+            healthScore,
+            instructions,
+            image
+        });
+        const proms = diets.map(diet => recipeCreate.addDiet(diet));
+        await Promise.all(proms);
 
+        res.status(200).send({ msg: "Recipe successfully created" });
+
+    } catch (error) {
+        next(error);
+    };
+};
 
 
 module.exports = {
     getAllRecipes,
     getIdRecipe,
-    loadDietsInDb
-
+    loadDietsInDb,
+    create,
+    on
 };
 
 

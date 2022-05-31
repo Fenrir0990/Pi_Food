@@ -130,6 +130,7 @@ return (
                     
                 </div>
                 <div className="selectdiets">
+                    <div>
                         <label className="minTitulo">Diets</label>
                         <select  onChange = {(e)=> select(e)}>
                             <option value = ""  hidden  name="diets" >Select Diets</option>
@@ -138,18 +139,17 @@ return (
                                 })
                                 } 
                         </select>
-                        <ul className="ul_home">
-                            <li >                            
-                                {newRecipe.diets.map(diet => 
-                                <div >
-                                    <p>{diets?.find(element => element.id === diet)?.name}</p>
-                                    <button  onClick={() => deleteDiet(diet)}>x</button>
-                                </div>
-                                )}
-                            </li>
-                        </ul>
                     </div>
-                    <button  type="submit" onClick={(p) => Submit(p)}>Create Recipe</button>
+                        <div className="ul_home">                            
+                            {newRecipe.diets.map(diet => 
+                            <div className="dietaa" >
+                                <p>{diets?.find(element => element.id === diet)?.name}</p>
+                                <button className="close"  onClick={() => deleteDiet(diet)}>x</button>
+                            </div>
+                            )}
+                        </div>
+                </div>
+                    <button className="creando"  type="submit" onClick={(p) => Submit(p)}>Create Recipe</button>
                     <div>
                         <img className="sal" src={sal} alt="not found"/>
                     </div>

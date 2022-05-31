@@ -59,6 +59,7 @@ export default function Home(){
     };
     const orderRecipesSpoonScore=(q)=>{
         dispatch(orderBySpoonacularScore(q.target.value))
+        console.log(q.target.value)
         //setCurrentPage(1)
         setScore(q.target.value)
         q.preventDefault()
@@ -87,6 +88,10 @@ export default function Home(){
     return (
         <div className="backgraund">
           
+          {(recipes===undefined) || (diets===undefined)
+                    ?
+                    <Load/>
+                    :<>
             <div className="firstContainer">
                 <form action="submit">
                     <label className="Buscar"><b>Buscar</b></label>
@@ -98,11 +103,11 @@ export default function Home(){
                     <option value="Asc">A to Z</option>
                     <option value="Desc">Z to A</option>
                 </select>
-                <select  onChange={q => orderRecipesSpoonScore(q)}>
+               {/*  <select  onChange={q => orderRecipesSpoonScore(q)}>
                     <option value="" >Select Score</option>
                     <option value="SpoonacularMax">Max Spoonacular Score</option>
                     <option value="SpoonacularMin">Min Spoonacular Score</option>
-                </select>
+                </select> */}
                 <select  onChange={q => filteredDiet(q)}>
                     <option value="">Select Diets</option>
                     {diets?.map(diet => {
@@ -116,13 +121,11 @@ export default function Home(){
             <div className="secondContainer">
                 
                 
-                    {(recipes===undefined) || (diets===undefined)
-                    ?
-                    <Load/>
-                    :
                     <div className="pagecontained">
                             <Page className="page" recipesPerPage={recipesPerPage} allRecipes={recipes?.length} paginado={paginado}></Page>
-                    
+                    <div>
+                        
+                    </div>
                     <div className="Home">
                         
                         {currentRecipes?.map((recipe,i)=>{
@@ -131,7 +134,7 @@ export default function Home(){
                                     <Card 
                                         Image={recipe.image} 
                                         title={recipe.title} 
-                                        diets={recipe.diets?.map(r => <p>{r.name}</p>)} 
+                                        diets={recipe.diets?.map(r => <p className="d">{r.name}</p>)} 
                                         key={i}
                                         id= {recipe.id}
                                     />
@@ -142,13 +145,13 @@ export default function Home(){
                     </div>
                     </div>
 
-                    }
                 <div>
                     <Page className="page" recipesPerPage={recipesPerPage} allRecipes={recipes?.length} paginado={paginado}></Page>
                 </div>
 
 
             </div>
+            </>}
         </div>
     )
 }

@@ -4,7 +4,7 @@ const { YOUR_API_KEY} = process.env;
 const axios = require('axios');
 const {Diet,Recipe} = require('../db');
 const {Op} = require("sequelize");
-const {getAllRecipes,getIdRecipe,loadDietsInDb} = require("../controllers/index")
+const {getAllRecipes,getIdRecipe,loadDietsInDb,create,on} = require("../controllers/index")
 //const cors = require("cors")
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -12,18 +12,8 @@ const {getAllRecipes,getIdRecipe,loadDietsInDb} = require("../controllers/index"
 
 const router = Router();
 
-router.get("/francoesun",(req,res)=>{
-    res.send("es un puto").status(200)
-})
-router.get("/",(req,res)=>{
-    res.send("server on").status(200)
-})
-router.get("/destroy", async(req,res)=>{
-    const ejemplo = await Recipe.destroy({
-        where:{title:"COMIDA"}
-    })
-    res.send("tapronto").status(200)
-});
+
+router.get("/",on)
 router.get("/ej", async(req,res)=>{
     const ejemplo = await Recipe.create({
         title:"COMIDA",
@@ -39,28 +29,7 @@ router.get("/recipes/:id",getIdRecipe);
 router.get("/types",loadDietsInDb);
 router.get("/")
 
-router.post("/create",async (req,res,next) => {
-    try {
-        const {title, summary, spoonacularScore, healthScore, instructions, image, diets} = req.body
-
-        const recipeCreate = await Recipe.create({
-            title,
-            summary,
-            spoonacularScore,
-            healthScore,
-            instructions,
-            image
-        })
-
-        const proms = diets.map(diet => recipeCreate.addDiet(diet));
-        await Promise.all(proms)
-
-        res.status(200).send({ msg: "Recipe successfully created" })
-
-    } catch (error) {
-        next(error)
-    }
-});
+router.post("/create",create);
 
  
 // Configurar los routers

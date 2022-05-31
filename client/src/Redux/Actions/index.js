@@ -100,11 +100,17 @@ export const postNewRecipe=(payload)=> async (dispatch) => {
 };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 //order
 
-export const orderBySpoonacularScore=(data)=>{
-    return {
-        type: ORDER_BY_SCORE,
-        payload:data
-    };
+export const orderBySpoonacularScore=(data)=>async (dispatch)=>{
+    try{
+        return dispatch({
+            type: ORDER_BY_SCORE,
+            payload:data
+        });
+    }
+    catch(err){
+        console.log(err)
+        throw err
+    }
 };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 export const orderByTitle=(order)=>{

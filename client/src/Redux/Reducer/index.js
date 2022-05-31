@@ -41,17 +41,18 @@ const edit = (state=initialstate,action)=> {
                 allRecipes:action.payload
             }
         case ORDER_BY_SCORE:
-            const orderRecipesSpoonScore = action.payload === "SpoonacularMax" ? 
-                state.allRecipes.sort((a,b)=>{
+            const order = (a,b)=>{
+                if(action.payload === "SpoonacularMax"){
                     if(a.spoonacularScore < b.spoonacularScore){
+                        console.log(a,b)
                         return 1
                     }
                     if (b.spoonacularScore < a.spoonacularScore){
                         return -1
                     }
                     return 0
-                }) 
-                : state.allRecipes.sort((a,b)=>{
+                }
+                else if(action.payload === "SpoonacularMin"){
                     if(a.spoonacularScore < b.spoonacularScore){
                         return -1
                     }
@@ -59,7 +60,11 @@ const edit = (state=initialstate,action)=> {
                         return 1
                     }
                     return 0
-                })
+                }
+            }
+            
+            const orderRecipesSpoonScore = state.allRecipes.sort((a,b)=>order(a,b))
+            
             return {
                 ...state,
                 allRecipes: orderRecipesSpoonScore

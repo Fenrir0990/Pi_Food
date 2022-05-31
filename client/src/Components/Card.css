@@ -1,14 +1,26 @@
 .card{
-    border-radius: 10px;
-    border-width: 5px;
+    border-radius: 5px;
+    
+    border-color: black;
+    border-style: groove;
+    border: 20px;
+
     margin: 10px;
     height: 380px;
     width: 350px;
     padding: 3px;
-    border-color: black;
-    background-color: white;
-    font-size: auto;
+   
+    background-color: rgb(32, 48, 58);
     
+    font-size: auto;
+
+    box-shadow: red;
+    box-decoration-break: clone;
+    
+}
+.d{
+    border:2px black;
+
 }
 .image{
     height: 40%;
@@ -30,7 +42,7 @@
     text-decoration: none;
 }
 .contained_diets{
-    background-color: rgb(136, 103, 103);
+    background-color: rgb(140, 140, 140);
     display: grid;
     border-radius: 10px;
     grid-template-columns: auto auto auto;
